@@ -1,0 +1,47 @@
+//GABARITO
+//A = 100%
+//B = 100%
+//C = 100%
+using System;
+using BibliotecaVetor;
+
+class AtvVetor{
+    static bool verificarAumento(int[] ocorrencias){
+        bool encontrou = false;
+
+        for (int i = 0; i < ocorrencias.Length - 2; i++){
+            if (ocorrencias[i] < ocorrencias[i + 1] && ocorrencias[i + 1] < ocorrencias[i + 2]){
+                Console.WriteLine();
+                Console.WriteLine("Sequência crescente encontrada!");
+                Console.WriteLine("Índices: " + i + ", " + (i + 1) + ", " + (i + 2));
+                Console.WriteLine("Valores: " + ocorrencias[i] + ", " + ocorrencias[i + 1] + ", " + ocorrencias[i + 2]);
+                encontrou = true;
+            }
+        }
+        return encontrou;
+    }
+
+    static void Main(){
+        int[] ocorrencias = new int[6];
+
+        Vetor.lerVetor(ocorrencias);
+
+        Console.WriteLine();
+        Vetor.mostrarVetor(ocorrencias);
+        Console.WriteLine();
+
+        bool resultado = verificarAumento(ocorrencias);
+
+        if (resultado == true){
+            Console.WriteLine();
+            Console.WriteLine("Retorno:");
+            Console.WriteLine("true");
+        }
+        else{
+            Console.WriteLine();
+            Console.WriteLine("Nenhuma sequência crescente encontrada.");
+            Console.WriteLine("Retorno:");
+            Console.WriteLine("false");
+        }
+    }
+}
